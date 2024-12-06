@@ -108,6 +108,7 @@ const signUp = async (req, res) => {
             password: hashedPassword,
             accountType,
             additionalDetails: profileDetails._id,
+            //cool bro  it's an third party api to generate a image baced on names just like defalut user photo
             image: `http://api.dicebear.com/5.x/initials/svg?seed=${firstName}${lastName}`,
         });
 
@@ -158,7 +159,7 @@ const login = async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: '2h' }
         );
-
+          //due to privacy concers lets remove the  passoword from current user  it will be helpfull to send that in frontenf
         user.password = undefined;
 
         return res
@@ -172,7 +173,7 @@ const login = async (req, res) => {
                 success: true,
                 message: 'Login successful',
                 token,
-                user,
+                user, //see we are sending this we have removed pass from user object  , have any dout kinfly check by debugginh
             });
     } catch (error) {
         console.error("Error in login:", error);

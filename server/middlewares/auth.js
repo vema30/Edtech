@@ -43,6 +43,7 @@ const auth = async (req, res, next) => {
         });
     }
 };
+// we need to provide role based access so let's create three controllers for authentication based on role 
 const isStudent =async(req, res, next)=>{
      try{
         if(req.user.accountType!='Student')

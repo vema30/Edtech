@@ -2,9 +2,18 @@ const User = require("../models/User")
 const mailSender = require("../utils/mailSender")
 const bcrypt = require("bcrypt")
 const crypto = require("crypto")
+
+//fucntion to resent update tokenofpASSWORD in mongodb
 exports.resetPasswordToken = async (req, res) => {
   try {
-    const email = req.body.email
+
+    //algo
+    //take mail from request 
+    //check if mail exists or not
+    // generate a token
+    // update it by findOneAndUpdate ->email ,token ...
+    // to provide a user  easiy reset password lets create a front end link and share it on email
+    const email = req.body.email   
     const user = await User.findOne({ email: email })
     if (!user) {
       return res.json({
@@ -27,6 +36,7 @@ exports.resetPasswordToken = async (req, res) => {
     const url = `http://localhost:3000/update-password/${token}`
    // const url = `https://studynotion-edtech-project.vercel.app/update-password/${token}`
 
+   //calling mailsender to send mail , check top we have imported it 
     await mailSender(
       email,
       "Password Reset",
@@ -46,8 +56,13 @@ exports.resetPasswordToken = async (req, res) => {
     })
   }
 }
-
+  //controller for resetPassword..
 exports.resetPassword = async (req, res) => {
+  //algo
+  // take basic requirements i=like pass , confirmPass ,token from body
+  //if pass != confirmpass return json false
+  //lets checck about the token in users  if !token lets return neg respose
+  //check avbout resetpasswordExpires
   try {
     const { password, confirmPassword, token } = req.body
 
@@ -70,6 +85,7 @@ exports.resetPassword = async (req, res) => {
         message: `Token is Expired, Please Regenerate Your Token`,
       })
     }
+    //lets hash the new pass which we take from user input and next step goes to updating it
     const encryptedPassword = await bcrypt.hash(password, 10)
     await User.findOneAndUpdate(
       { token: token },
