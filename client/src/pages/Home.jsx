@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { FaArrowRight } from "react-icons/fa";
-import HighlightText from '../components/HighlightText'
+import HighlightText from '../components/HomePage/HighlightText'
 import CTAButton from '../components/Button';
 import Banner from '../assets/Images/banner.mp4';
+import CodeBlocks from '../components/HomePage/CodeBlocks';
 const Home = () => {
     return (
     <div>
@@ -33,7 +34,7 @@ const Home = () => {
          >
            <video 
              muted 
-             loop 
+             loop
              autoPlay 
              aria-label="Promotional banner video" 
              className="border-r-8 border-b-8  border-white h-[300px]"
@@ -42,11 +43,152 @@ const Home = () => {
              Your browser does not support the video tag.
            </video>
          </div>
-         
+              
+           
+            
+         </div>
+
+          {/* Section 1*/}
+          <div>
+          <CodeBlocks 
+          position={"flex-row"}
+          heading={
+            <div className='text-4xl text-white font-semibold'>
+            Start   
+            <HighlightText text={"coding in seconds"}></HighlightText>
+            <br></br> 
+
             </div>
-         {/* Section 1*/}
-         {/* Section 1*/}
-           {/* Section 1*/}
+          }
+          subheading={
+            <div className='text-pure-greys-500'>
+            Unlock your coding potential with our online courses.
+             </div>
+          }
+          ctabutton1 ={
+            {
+              btnText:"continue Lesson",
+              linkto:"/signup",
+              active:true,
+
+            }
+          }
+          ctabutton2={
+            {
+              btnText:"learn more",
+              linkto:"/login",
+              active:false,
+
+            }
+          }
+          codeblock={
+             `<html>
+    <head>
+        <title>HTML Template Example</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to My Website</h1>
+        </header>
+        <nav>
+            <a href="#home">Home</a> | 
+            <a href="#about">About</a> | 
+            <a href="#contact">Contact</a>
+        </nav>
+        <section id="home">
+            <h2>Home</h2>
+            <p>This is the home section.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This is the about section.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>This is the contact section.</p>
+        </section>
+        <footer>
+            <p>Copyright © 2024. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>`
+          }
+          bgGradient={"blue-200"}
+          codeColor={"white"}
+           />
+          </div>
+          <div>
+          <CodeBlocks 
+          position={"lg:flex-row-reverse"}
+          heading={
+            <div className='text-4xl text-white font-semibold'>
+            Unlock your  
+            <HighlightText text={"coding potential"}></HighlightText>
+            <br></br> with our online courses
+
+            </div>
+          }
+          subheading={
+            <div className='text-pure-greys-500'>
+            Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.
+            </div>
+          }
+          ctabutton1 ={
+            {
+              btnText:"try it yourself",
+              linkto:"/signup",
+              active:true,
+
+            }
+          }
+          ctabutton2={
+            {
+              btnText:"learn more",
+              linkto:"/login",
+              active:false,
+
+            }
+          }
+          codeblock={
+             `<html>
+    <head>
+        <title>HTML Template Example</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to My Website</h1>
+        </header>
+        <nav>
+            <a href="#home">Home</a> | 
+            <a href="#about">About</a> | 
+            <a href="#contact">Contact</a>
+        </nav>
+        <section id="home">
+            <h2>Home</h2>
+            <p>This is the home section.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This is the about section.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>This is the contact section.</p>
+        </section>
+        <footer>
+            <p>Copyright © 2024. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>`
+          }
+          bgGradient={"blue-200"}
+          codeColor={"white"}
+           />
+          </div>
+         {/* Section 2*/}
+
+         {/* Section 3*/}
+           {/* Section 4*/}
     </div>
   )
 }
