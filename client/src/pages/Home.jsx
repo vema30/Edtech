@@ -1,196 +1,151 @@
-import React from 'react'
-import { Link } from 'react-router'
+// Icons Import
 import { FaArrowRight } from "react-icons/fa";
-import HighlightText from '../components/HomePage/HighlightText'
-import CTAButton from '../components/Button';
-import Banner from '../assets/Images/banner.mp4';
-import CodeBlocks from '../components/HomePage/CodeBlocks';
-const Home = () => {
-    return (
+import { Link } from "react-router-dom";
+
+// Image and Video Import
+import Banner from "../assets/Images/banner.mp4";
+
+import Footer from '../components/Common/Footer';
+// Component Imports
+import CTAButton from "../components/core/HomePage/Button";
+import CodeBlocks from "../components/core/HomePage/CodeBlocks";
+import HighlightText from "../components/core/HomePage/HighlightText";
+
+function Home() {
+  return (
     <div>
-<p>home</p>
-       {/* Section 1*/}
-       <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContentcodhe items-center' >
-          <Link to={"/signup"}>
-                <div className=' mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 '>
-                <div className='flex flex-row mt-16 p-1 items-center gap-2 rounded-full py-[5px] px-10 transition-all duration-200 group-hover:bg-richblack-900'>
-                <p>Become an Instructor</p>
-                <FaArrowRight />
-                </div>
-
-                </div>
-          </Link>
-           <div className='text-center text-4xl font-semibold mt-7 text-white'> 
-              Empower Your Future with 
-              <HighlightText text={"Coding Skills"}></HighlightText>
-           </div>
-           <div className='mt-4  nt text-center text-lg w-[90%] font-bold text-richblack-300'>With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors. </div>
-           <div  className='flex flex-row gap-7 mt-8'>
-           <CTAButton active={true} linkto={'/signup'}>Learn More</CTAButton>;
-           <CTAButton active={false} linkto={'/login'}>Book a  demo</CTAButton>
-           </div>
-           <div 
-           className="relative mx-3 my-12 px-20 drop-shadow-[10px_10px_15px_rgba(255,255,225,0)]"
-         >
-           <video 
-             muted 
-             loop
-             autoPlay 
-             aria-label="Promotional banner video" 
-             className="border-r-8 border-b-8  border-white h-[300px]"
-           >
-             <source src={Banner} type="video/mp4" />
-             Your browser does not support the video tag.
-           </video>
-         </div>
-              
-           
-            
-         </div>
-
-          {/* Section 1*/}
-          <div>
-          <CodeBlocks 
-          position={"flex-row"}
-          heading={
-            <div className='text-4xl text-white font-semibold'>
-            Start   
-            <HighlightText text={"coding in seconds"}></HighlightText>
-            <br></br> 
-
+      {/* Section 1 */}
+      <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
+        {/* Become an Instructor Button */}
+        <Link to={"/signup"}>
+          <div className="group mx-auto mt-16 w-fit rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
+            <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900">
+              <p>Become an Instructor</p>
+              <FaArrowRight />
             </div>
-          }
-          subheading={
-            <div className='text-pure-greys-500'>
-            Unlock your coding potential with our online courses.
-             </div>
-          }
-          ctabutton1 ={
-            {
-              btnText:"continue Lesson",
-              linkto:"/signup",
-              active:true,
-
-            }
-          }
-          ctabutton2={
-            {
-              btnText:"learn more",
-              linkto:"/login",
-              active:false,
-
-            }
-          }
-          codeblock={
-             `<html>
-    <head>
-        <title>HTML Template Example</title>
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to My Website</h1>
-        </header>
-        <nav>
-            <a href="#home">Home</a> | 
-            <a href="#about">About</a> | 
-            <a href="#contact">Contact</a>
-        </nav>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the home section.</p>
-        </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>This is the about section.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>This is the contact section.</p>
-        </section>
-        <footer>
-            <p>Copyright © 2024. All Rights Reserved.</p>
-        </footer>
-    </body>
-</html>`
-          }
-          bgGradient={"blue-200"}
-          codeColor={"white"}
-           />
           </div>
-          <div>
-          <CodeBlocks 
-          position={"lg:flex-row-reverse"}
-          heading={
-            <div className='text-4xl text-white font-semibold'>
-            Unlock your  
-            <HighlightText text={"coding potential"}></HighlightText>
-            <br></br> with our online courses
+        </Link>
 
-            </div>
-          }
-          subheading={
-            <div className='text-pure-greys-500'>
-            Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.
-            </div>
-          }
-          ctabutton1 ={
-            {
-              btnText:"try it yourself",
-              linkto:"/signup",
-              active:true,
+        {/* Heading */}
+        <div className="text-center text-4xl font-semibold">
+          Empower Your Future with
+          <HighlightText text={"Coding Skills"} />
+        </div>
 
+        {/* Subheading */}
+        <div className="-mt-3 w-[90%] text-center text-lg font-bold text-richblack-300">
+          With our online coding courses, you can learn at your own pace, from
+          anywhere in the world, and get access to a wealth of resources,
+          including hands-on projects, quizzes, and personalized feedback from
+          instructors.
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="mt-8 flex flex-row gap-7">
+          <CTAButton active={true} linkto={"/signup"}>
+            Learn More
+          </CTAButton>
+          <CTAButton active={false} linkto={"/login"}>
+            Book a Demo
+          </CTAButton>
+        </div>
+
+        {/* Video Section */}
+        <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
+          <video
+            className="shadow-[20px_20px_rgba(255,255,255)]"
+            muted
+            loop
+            autoPlay
+          >
+            <source src={Banner} type="video/mp4" />
+          </video>
+        </div>
+
+        {/* Code Section 1 */}
+        <div>
+          <CodeBlocks
+            position={"lg:flex-row"}
+            heading={
+              <div className="text-4xl font-semibold">
+                Unlock your
+                <HighlightText text={"coding potential"} /> with our online
+                courses.
+              </div>
             }
-          }
-          ctabutton2={
-            {
-              btnText:"learn more",
-              linkto:"/login",
-              active:false,
-
+            subheading={
+              "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
             }
-          }
-          codeblock={
-             `<html>
-    <head>
-        <title>HTML Template Example</title>
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to My Website</h1>
-        </header>
-        <nav>
-            <a href="#home">Home</a> | 
-            <a href="#about">About</a> | 
-            <a href="#contact">Contact</a>
-        </nav>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the home section.</p>
-        </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>This is the about section.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>This is the contact section.</p>
-        </section>
-        <footer>
-            <p>Copyright © 2024. All Rights Reserved.</p>
-        </footer>
-    </body>
-</html>`
-          }
-          bgGradient={"blue-200"}
-          codeColor={"white"}
-           />
+            ctabtn1={{
+              btnText: "Try it Yourself",
+              link: "/signup",
+              active: true,
+            }}
+            ctabtn2={{
+              btnText: "Learn More",
+              link: "/signup",
+              active: false,
+            }}
+            codeColor={"text-yellow-25"}
+            codeblock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
+            backgroundGradient={<div className="codeblock1 absolute"></div>}
+          />
+        </div>
+
+        {/* Code Section 2 */}
+        <div>
+          <CodeBlocks
+            position={"lg:flex-row-reverse"}
+            heading={
+              <div className="w-[100%] text-4xl font-semibold lg:w-[50%]">
+                Start
+                <HighlightText text={"coding in seconds"} />
+              </div>
+            }
+            subheading={
+              "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
+            }
+            ctabtn1={{
+              btnText: "Continue Lesson",
+              link: "/signup",
+              active: true,
+            }}
+            ctabtn2={{
+              btnText: "Learn More",
+              link: "/signup",
+              active: false,
+            }}
+            codeColor={"text-white"}
+            codeblock={`import React from "react";\nimport CTAButton from "./Button";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\n  return (\n    <div>Home</div>\n  );\n};\nexport default Home;`}
+            backgroundGradient={<div className="codeblock2 absolute"></div>}
+          />
+        </div>
+      </div>
+
+      {/* Section 2 */}
+      <div className="bg-pure-greys-5 text-richblack-700">
+        <div className="homepage_bg h-[320px]">
+          <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
+            <div className="lg:h-[150px]"></div>
+            <div className="flex flex-row gap-7 text-white lg:mt-8">
+              <CTAButton active={true} linkto={"/signup"}>
+                <div className="flex items-center gap-2">
+                  Explore Full Catalog
+                  <FaArrowRight />
+                </div>
+              </CTAButton>
+              <CTAButton active={false} linkto={"/login"}>
+                Learn More
+              </CTAButton>
+            </div>
           </div>
-         {/* Section 2*/}
-
-         {/* Section 3*/}
-           {/* Section 4*/}
+        </div>
+      </div>
+      <div className="text-white">
+      <Footer/>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
